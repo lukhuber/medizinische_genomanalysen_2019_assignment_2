@@ -2,7 +2,7 @@
 
 import vcf
 
-__author__ = 'XXX'
+__author__ = 'Lukas HUBER'
 
 
 class Assignment2:
@@ -128,14 +128,14 @@ class Assignment2:
 
         print("Merging chr21_new.vcf with chr22_new.vcf")
 
-        vcf_file_chrA = vcf.Reader(open(file1), "r")
-        vcf_file_chrB = vcf.Reader(open(file2), "r")
+        vcf_file1 = vcf.Reader(open(file1), "r")
+        vcf_file2 = vcf.Reader(open(file2), "r")
 
-        vcf_writer = vcf.Writer(open("merged_file.vcf", "w"), vcf_file_chrA)
+        vcf_writer = vcf.Writer(open("merged_file.vcf", "w"),   vcf_file1)
 
-        for vcf_file in [vcf_file_chrA, vcf_file_chrB]:
-            for record in vcf_file:
-                vcf_writer.write_record(record)
+        for file in [vcf_file1, vcf_file2]:
+            for i in file:
+                vcf_writer.write_record(i)
 
         print("Merge successful")
     
