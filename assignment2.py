@@ -137,52 +137,33 @@ class Assignment2:
             for i in file:
                 vcf_writer.write_record(i)
 
-        print("Merge successful")
+        print("Merge successful. File 'merged_file.vcf' created.")
     
     def print_summary(self):
-        self.total_number_of_variants1 = self.get_total_number_of_variants_of_file(self.vcf1_file)
+        print("Calculating total number of variants")
         self.total_number_of_variants2 = self.get_total_number_of_variants_of_file(self.vcf2_file)
-
-        self.average_quality_of_file1 = self.get_average_quality_of_file(self.vcf1_file)
+        print("Calculating average qualitiy of file")
         self.average_quality_of_file2 = self.get_average_quality_of_file(self.vcf2_file)
-
-        self.variant_caller1 = self.get_variant_caller_of_vcf(self.vcf1_file)
+        print("Getting variant caller")
         self.variant_caller2 = self.get_variant_caller_of_vcf(self.vcf2_file)
-
-        self.human_reference_version1 = self.get_human_reference_version(self.vcf1_file)
+        print("Getting human reference version")
         self.human_reference_version2 = self.get_human_reference_version(self.vcf2_file)
-
-        self.number_of_indels1 = self.get_number_of_indels(self.vcf1_file)
+        print("Calculating number of indels")
         self.number_of_indels2 = self.get_number_of_indels(self.vcf2_file)
-
-        self.number_of_snvs1 = self.get_number_of_snvs(self.vcf1_file)
+        print("Calculating number of snvs")
         self.number_of_snvs2 = self.get_number_of_snvs(self.vcf2_file)
-
-        self.number_of_heterozygous_variants1 = self.get_number_of_heterozygous_variants(self.vcf1_file)
+        print("Calculating number of heterozygous variants")
         self.number_of_heterozygous_variants2 = self.get_number_of_heterozygous_variants(self.vcf2_file)
         
         print("\n------------------- RESULTS -------------------")
-        print("Total number of variants of chr21:       ", self.total_number_of_variants1)
         print("Total number of variants of chr22:       ", self.total_number_of_variants2)
-        print("Average quality of chr21:                ", self.average_quality_of_file1)
-        print("Average quality of chr22:                ", self.average_quality_of_file1)
-        print("Number of indels in chr21:               ", self.number_of_indels1)
+        print("Average quality of chr22:                ", self.average_quality_of_file2)
         print("Number of indels in chr22:               ", self.number_of_indels2)
-        print("Number of snvs in chr21:                 ", self.number_of_snvs1)
         print("Number of snvs in chr22:                 ", self.number_of_snvs2)
-        print("Number of heterozygous variants in chr21:", self.number_of_heterozygous_variants1)
         print("Number of heterozygous variants in chr22:", self.number_of_heterozygous_variants2)
-
-        print("Variant caller of chr21:                ")
-        for caller in self.variant_caller1:
-            print("                          ", caller)
         print("Variant caller of chr22:                ")
         for caller in self.variant_caller2:
             print("                          ", caller)
-
-        print("Human Reference Version of chr21:        ")
-        for ref in self.human_reference_version1:
-            print(" ", ref)
         print("Human Reference Version of chr22:        ")
         for ref in self.human_reference_version2:
             print(" ", ref)
